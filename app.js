@@ -9,6 +9,8 @@ const passport = require('passport');
 const MongoStore = require('connect-mongo');
 
 const app = express();
+const cors = require("cors")
+app.use(cors());
 const port = 5000 || process.env.PORT;
 
 app.use(session({
