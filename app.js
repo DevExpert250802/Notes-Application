@@ -10,7 +10,13 @@ const MongoStore = require('connect-mongo');
 
 const app = express();
 const cors = require("cors")
-app.use(cors());
+const corsConfig = {
+ origin : "*",
+ credential : true,
+ methods : ["GET","POST","PUT","DELETE"],
+}
+app.options("",cors(corsConfig))
+app.use(cors(corsConfig));
 const port = 5000 || process.env.PORT;
 
 app.use(session({
